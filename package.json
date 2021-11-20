@@ -1,0 +1,34 @@
+{
+  "name": "trendyol-api",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myazarc/trendyol-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/myazarc/trendyol-api/issues"
+  },
+  "homepage": "https://github.com/myazarc/trendyol-api#readme",
+  "author": {
+    "name": "Mustafa Yazar",
+    "email": "myazarc@gmail.com"
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "nodemon": "^2.0.15",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.2"
+  },
+  "scripts": {
+    "dev": "yarn compile && concurrently \"yarn compile:watch\"  \"yarn start\"",
+    "start": "nodemon .",
+    "compile": "rimraf dist && tsc",
+    "compile:watch": "tsc -w",
+    "build": "yarn compile"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
