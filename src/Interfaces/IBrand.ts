@@ -14,7 +14,7 @@ interface BrandByNameResponse extends AxiosResponse {
 }
 
 interface BrandResponse extends AxiosResponse {
-  data: BrandResult[];
+  data: BrandResult;
 }
 
 interface BrandRequest {
