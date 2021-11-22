@@ -22,6 +22,7 @@ import {
   UpdateProductRequest,
   UpdateProductResponse,
 } from "../Interfaces/IUpdateProduct";
+import { SuppliersAddressResponse } from "../Interfaces/ISuppliersAddress";
 
 class Trendyol {
   public END_POINT = "https://api.trendyol.com/sapigw/";
@@ -76,6 +77,10 @@ class Trendyol {
     return this._.get(this.getShipmetProviderServiceUrl());
   }
 
+  getSuppliersAddresses(): Promise<SuppliersAddressResponse> {
+    return this._.get(this.getSuppliersAddressServiceUrl());
+  }
+
   getBrands(params: BrandRequest = {}): Promise<BrandResponse> {
     return this._.get(this.getBrandServiceUrl(), {
       params,
@@ -128,6 +133,10 @@ class Trendyol {
 
   private getShipmetProviderServiceUrl(): string {
     return `shipment-providers`;
+  }
+
+  private getSuppliersAddressServiceUrl(): string {
+    return `suppliers/${this.STORE_ID}/addresses`;
   }
 
   private getBrandServiceUrl(): string {
