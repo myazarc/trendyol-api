@@ -51,6 +51,7 @@ ty.getBrands().then((res) => {
 | updatePriceAndInventory | Ürün fiyatı ve stok miktarını güncellemek için kullanılır.                                        |
 | updateProduct           | Ürünün fiyat ve stok miktarı bilgisi hariç diğer bilgilerini güncellemek için kullanılır.         |
 | getFilterProduct        | Kayıtlı ürünlerinizi listelemek için kullanılır.                                                  |
+| getSuppliersAddresses   | İade ve Sevkiyat Adres Bilgilerini listelemek için kullanılır.                                    |
 | getBatchRequestResult   | Ürün servislerinde verilern batchId sorgulaması için kullanılır.                                  |
 | getOrders               | Siparişlerinizi almak için kullanılır.                                                            |
 | getOrderWithAllPages    | Siparişleriniz birden fazla sayfada yer alıyorsa tamamını tek bir methodda almak için kullanılır. |
@@ -85,4 +86,5 @@ ty.getBrands().then((res) => {
     getBrandsByName(brandName: string): Promise<BrandByNameResponse>;
     getCategoryAttributes(categoryId: number | string): Promise<CategoryAttributeResponse>;
     getCategories(): Promise<CategoryResponse>;
+    getSuppliersAddresses(): Promise<SuppliersAddressResponse>;
 ```
