@@ -12,6 +12,7 @@ import {
 } from "../src/Interfaces/IPriceAndInventory";
 import { ProductRequest, ProductResult } from "../src/Interfaces/IProduct";
 import { ShipmentProviderResult } from "../src/Interfaces/IShipmentProvider";
+import { SuppliersAddressResult } from "../src/Interfaces/ISuppliersAddress";
 import {
   UpdateProductRequest,
   UpdateProductResult,
@@ -1112,6 +1113,127 @@ describe("Service", () => {
         `suppliers/${STORE_ID}/products/price-and-inventory`
       );
       expect(result.data).toEqual(updatePriceAndInventoryResult);
+      expect(result.status).toEqual(200);
+      expectGlobal(result);
+    });
+  });
+
+  describe("getSuppliersAddresses", () => {
+    it("should be return suppliersaddress list", async () => {
+      const supplierAddressResult: SuppliersAddressResult = {
+        supplierAddresses: [
+          {
+            id: 1,
+            addressType: "Shipment",
+            country: "Country-0",
+            city: "Kocaeli",
+            cityCode: 0,
+            district: "Gebze",
+            districtId: 0,
+            postCode: "post-code-0",
+            address: "Address-0",
+            returningAddress: false,
+            fullAddress: "Address-0 Gebze post-code-0 Kocaeli Country-0",
+            shipmentAddress: true,
+            invoiceAddress: false,
+            isDefault: true,
+          },
+          {
+            id: 2,
+            addressType: "Invoice",
+            country: "Country-2",
+            city: "Ankara",
+            cityCode: 0,
+            district: "Mamak",
+            districtId: 0,
+            postCode: "post-code-2",
+            address: "Address-2",
+            returningAddress: false,
+            fullAddress: "Address-2 Mamak post-code-2 Ankara Country-2",
+            shipmentAddress: false,
+            invoiceAddress: true,
+            isDefault: true,
+          },
+          {
+            id: 3,
+            addressType: "Returning",
+            country: "Country-3",
+            city: "Bursa",
+            cityCode: 0,
+            district: "Teleferik",
+            districtId: 0,
+            postCode: "post-code-3",
+            address: "Address-3",
+            returningAddress: true,
+            fullAddress: "Address-3 Teleferik post-code-3 Bursa Country-3",
+            shipmentAddress: false,
+            invoiceAddress: false,
+            isDefault: true,
+          },
+          {
+            id: 4,
+            addressType: "Returning",
+            country: "Country-4",
+            city: "İzmir",
+            cityCode: 0,
+            district: "Bornova",
+            districtId: 0,
+            postCode: "post-code-4",
+            address: "Address-4",
+            returningAddress: true,
+            fullAddress: "Address-4 Bornova post-code-4 İzmir Country-4",
+            shipmentAddress: false,
+            invoiceAddress: false,
+            isDefault: false,
+          },
+        ],
+        defaultShipmentAddress: {
+          id: 0,
+          addressType: "Shipment",
+          country: "Country-0",
+          city: "Kocaeli",
+          cityCode: 0,
+          district: "Gebze",
+          districtId: 0,
+          postCode: "post-code-0",
+          address: "Address-0",
+          returningAddress: false,
+          fullAddress: "Address-0 Gebze post-code-0 Kocaeli Country-0",
+          shipmentAddress: true,
+          invoiceAddress: false,
+          isDefault: true,
+        },
+        defaultInvoiceAddress: {
+          id: 2,
+          addressType: "Invoice",
+          country: "Country-2",
+          city: "Ankara",
+          cityCode: 0,
+          district: "Mamak",
+          districtId: 0,
+          postCode: "post-code-2",
+          address: "Address-2",
+          returningAddress: false,
+          fullAddress: "Address-2 Mamak post-code-2 Ankara Country-2",
+          shipmentAddress: false,
+          invoiceAddress: true,
+          isDefault: true,
+        },
+        defaultReturningAddress: {
+          present: true,
+        },
+      };
+
+      mock
+        .onGet(`${ty.END_POINT}suppliers/${STORE_ID}/addresses`)
+        .reply(200, supplierAddressResult);
+
+      const result = await ty.getSuppliersAddresses();
+
+      expect(mock.history.get[0].url).toEqual(
+        `suppliers/${STORE_ID}/addresses`
+      );
+      expect(result.data).toEqual(supplierAddressResult);
       expect(result.status).toEqual(200);
       expectGlobal(result);
     });
