@@ -56,7 +56,7 @@ class Trendyol {
   async getOrderWithAllPages(): Promise<OrderResponse[]> {
     const orderRes: OrderResponse = await this.getOrders();
     const orders: OrderResult = orderRes.data;
-    if (orders.totalPages < 1) {
+    if (orders.totalPages < 2) {
       return Promise.resolve([orderRes]);
     }
 

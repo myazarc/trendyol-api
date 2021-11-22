@@ -102,4 +102,5 @@ typings/
 # TernJS port file
 .tern-port
 
-src/test.ts
+src/
+

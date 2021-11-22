@@ -218,6 +218,401 @@ describe("Service", () => {
     });
   });
 
+  describe("getOrderWithAllPages", () => {
+    it("should be return all page order list", async () => {
+      const orderList: OrderResult = {
+        page: 0,
+        size: 50,
+        totalPages: 2,
+        totalElements: 1,
+        content: [
+          {
+            shipmentAddress: {
+              id: 80844024,
+              firstName: "Trendyol",
+              lastName: "Müşterisi",
+              address1:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1 ",
+              address2: "",
+              city: " İstanbul ",
+              cityCode: 34,
+              district: "Şişli",
+              districtId: 54,
+              postalCode: "10D",
+              countryCode: "TR",
+              fullName: "Trendyol Müşterisi",
+              fullAddress:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1   Şişli  İstanbul ",
+            },
+            orderNumber: "80869231",
+            grossAmount: 51.98,
+            totalDiscount: 25.99,
+            totalPrice: 25.99,
+            taxNumber: null,
+            invoiceAddress: {
+              id: 80844023,
+              firstName: "Trendyol",
+              lastName: "Müşterisi",
+              company: "",
+              address1:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1 ",
+              address2: "",
+              city: " İstanbul ",
+              district: "Şişli",
+              postalCode: "",
+              countryCode: "TR",
+              fullName: "Trendyol Müşterisi",
+              fullAddress:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1   Şişli  İstanbul ",
+            },
+            customerFirstName: "Trendyol",
+            customerEmail: "pf+dym24k@trendyolmail.com",
+            customerId: 99993706,
+            customerLastName: "Müşterisi",
+            id: 11650604,
+            cargoTrackingNumber: 7340447182689,
+            cargoTrackingLink: "https://kargotakip.trendyol.com/?token=",
+            cargoSenderNumber: "733861966410",
+            cargoProviderName: "Trendyol Express Marketplace",
+            lines: [
+              {
+                quantity: 2,
+                salesCampaignId: 201642,
+                productSize: " one size",
+                merchantSku: "merchantSku",
+                productName:
+                  "Kadın Çivit Mavi Geometrik Desenli Kapaklı Clutch sku1234 sku1234, one size",
+                productCode: 11954798,
+                merchantId: 201,
+                amount: 25.99,
+                discount: 13.0,
+                price: 12.99,
+                discountDetails: [
+                  {
+                    lineItemPrice: 13.0,
+                    lineItemDiscount: 12.99,
+                  },
+                  {
+                    lineItemPrice: 12.99,
+                    lineItemDiscount: 13.0,
+                  },
+                ],
+                currencyCode: "TRY",
+                productColor: "No Color",
+                id: 56040534,
+                sku: "sku1234",
+                vatBaseAmount: 8,
+                barcode: "barcode1234",
+                orderLineItemStatusName: "ReturnAccepted",
+              },
+            ],
+            orderDate: 1542801149863,
+            tcIdentityNumber: "99999999999",
+            currencyCode: "TRY",
+            packageHistories: [
+              {
+                createdDate: 1542790350607,
+                status: "Created",
+              },
+              {
+                createdDate: 1543789070462,
+                status: "Delivered",
+              },
+              {
+                createdDate: 1542872460911,
+                status: "Picking",
+              },
+              {
+                createdDate: 1542953901874,
+                status: "Shipped",
+              },
+            ],
+            shipmentPackageStatus: "ReturnAccepted",
+            estimatedDeliveryStartDate: 1614605119000,
+            estimatedDeliveryEndDate: 1615296319000,
+            deliveryAddressType: "Shipment",
+            agreedDeliveryDate: 1622549842955, // Ürüne belirtilmiş termin süresinden hesaplanan siparişin gecikmeden kargoya verilmesi için son gündür.
+          },
+        ],
+      };
+
+      const orderListPage1: OrderResult = {
+        page: 1,
+        size: 50,
+        totalPages: 2,
+        totalElements: 1,
+        content: [
+          {
+            shipmentAddress: {
+              id: 80844024,
+              firstName: "Trendyol",
+              lastName: "Müşterisi",
+              address1:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1 ",
+              address2: "",
+              city: " İstanbul ",
+              cityCode: 34,
+              district: "Şişli",
+              districtId: 54,
+              postalCode: "10D",
+              countryCode: "TR",
+              fullName: "Trendyol Müşterisi",
+              fullAddress:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1   Şişli  İstanbul ",
+            },
+            orderNumber: "80869231",
+            grossAmount: 51.98,
+            totalDiscount: 25.99,
+            totalPrice: 25.99,
+            taxNumber: null,
+            invoiceAddress: {
+              id: 80844023,
+              firstName: "Trendyol",
+              lastName: "Müşterisi",
+              company: "",
+              address1:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1 ",
+              address2: "",
+              city: " İstanbul ",
+              district: "Şişli",
+              postalCode: "",
+              countryCode: "TR",
+              fullName: "Trendyol Müşterisi",
+              fullAddress:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1   Şişli  İstanbul ",
+            },
+            customerFirstName: "Trendyol",
+            customerEmail: "pf+dym24k@trendyolmail.com",
+            customerId: 99993706,
+            customerLastName: "Müşterisi",
+            id: 11650604,
+            cargoTrackingNumber: 7340447182689,
+            cargoTrackingLink: "https://kargotakip.trendyol.com/?token=",
+            cargoSenderNumber: "733861966410",
+            cargoProviderName: "Trendyol Express Marketplace",
+            lines: [
+              {
+                quantity: 2,
+                salesCampaignId: 201642,
+                productSize: " one size",
+                merchantSku: "merchantSku",
+                productName:
+                  "Kadın Çivit Mavi Geometrik Desenli Kapaklı Clutch sku1234 sku1234, one size",
+                productCode: 11954798,
+                merchantId: 201,
+                amount: 25.99,
+                discount: 13.0,
+                price: 12.99,
+                discountDetails: [
+                  {
+                    lineItemPrice: 13.0,
+                    lineItemDiscount: 12.99,
+                  },
+                  {
+                    lineItemPrice: 12.99,
+                    lineItemDiscount: 13.0,
+                  },
+                ],
+                currencyCode: "TRY",
+                productColor: "No Color",
+                id: 56040534,
+                sku: "sku1234",
+                vatBaseAmount: 8,
+                barcode: "barcode1234",
+                orderLineItemStatusName: "ReturnAccepted",
+              },
+            ],
+            orderDate: 1542801149863,
+            tcIdentityNumber: "99999999999",
+            currencyCode: "TRY",
+            packageHistories: [
+              {
+                createdDate: 1542790350607,
+                status: "Created",
+              },
+              {
+                createdDate: 1543789070462,
+                status: "Delivered",
+              },
+              {
+                createdDate: 1542872460911,
+                status: "Picking",
+              },
+              {
+                createdDate: 1542953901874,
+                status: "Shipped",
+              },
+            ],
+            shipmentPackageStatus: "ReturnAccepted",
+            estimatedDeliveryStartDate: 1614605119000,
+            estimatedDeliveryEndDate: 1615296319000,
+            deliveryAddressType: "Shipment",
+            agreedDeliveryDate: 1622549842955, // Ürüne belirtilmiş termin süresinden hesaplanan siparişin gecikmeden kargoya verilmesi için son gündür.
+          },
+        ],
+      };
+
+      mock
+        .onGet(`${ty.END_POINT}suppliers/${STORE_ID}/orders`)
+        .reply((config) => {
+          if (config.params?.page === 1) {
+            // or check for deep equality with config.params
+            return [200, orderListPage1];
+          } else {
+            return [200, orderList];
+          }
+        });
+
+      const result = await ty.getOrderWithAllPages();
+
+      expect(mock.history.get[0].url).toEqual(`suppliers/${STORE_ID}/orders`);
+      expect(mock.history.get[1].url).toEqual(`suppliers/${STORE_ID}/orders`);
+
+      expect(mock.history.get[1].params).toEqual(
+        expect.objectContaining({ page: 1 })
+      );
+
+      expect(result[0].data).toEqual(orderList);
+      expect(result[0].status).toEqual(200);
+      expectGlobal(result[0]);
+
+      expect(result[1].data).toEqual(orderListPage1);
+      expect(result[1].status).toEqual(200);
+      expectGlobal(result[1]);
+    });
+
+    it("should be return all page order list(for one page)", async () => {
+      const orderList: OrderResult = {
+        page: 0,
+        size: 50,
+        totalPages: 1,
+        totalElements: 1,
+        content: [
+          {
+            shipmentAddress: {
+              id: 80844024,
+              firstName: "Trendyol",
+              lastName: "Müşterisi",
+              address1:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1 ",
+              address2: "",
+              city: " İstanbul ",
+              cityCode: 34,
+              district: "Şişli",
+              districtId: 54,
+              postalCode: "10D",
+              countryCode: "TR",
+              fullName: "Trendyol Müşterisi",
+              fullAddress:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1   Şişli  İstanbul ",
+            },
+            orderNumber: "80869231",
+            grossAmount: 51.98,
+            totalDiscount: 25.99,
+            totalPrice: 25.99,
+            taxNumber: null,
+            invoiceAddress: {
+              id: 80844023,
+              firstName: "Trendyol",
+              lastName: "Müşterisi",
+              company: "",
+              address1:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1 ",
+              address2: "",
+              city: " İstanbul ",
+              district: "Şişli",
+              postalCode: "",
+              countryCode: "TR",
+              fullName: "Trendyol Müşterisi",
+              fullAddress:
+                "DSM Grup Danışmanlık İletişim ve Satış Tic. A.Ş. Büyükdere Caddesi Noramin İş Merkezi No:237 Kat:B1   Şişli  İstanbul ",
+            },
+            customerFirstName: "Trendyol",
+            customerEmail: "pf+dym24k@trendyolmail.com",
+            customerId: 99993706,
+            customerLastName: "Müşterisi",
+            id: 11650604,
+            cargoTrackingNumber: 7340447182689,
+            cargoTrackingLink: "https://kargotakip.trendyol.com/?token=",
+            cargoSenderNumber: "733861966410",
+            cargoProviderName: "Trendyol Express Marketplace",
+            lines: [
+              {
+                quantity: 2,
+                salesCampaignId: 201642,
+                productSize: " one size",
+                merchantSku: "merchantSku",
+                productName:
+                  "Kadın Çivit Mavi Geometrik Desenli Kapaklı Clutch sku1234 sku1234, one size",
+                productCode: 11954798,
+                merchantId: 201,
+                amount: 25.99,
+                discount: 13.0,
+                price: 12.99,
+                discountDetails: [
+                  {
+                    lineItemPrice: 13.0,
+                    lineItemDiscount: 12.99,
+                  },
+                  {
+                    lineItemPrice: 12.99,
+                    lineItemDiscount: 13.0,
+                  },
+                ],
+                currencyCode: "TRY",
+                productColor: "No Color",
+                id: 56040534,
+                sku: "sku1234",
+                vatBaseAmount: 8,
+                barcode: "barcode1234",
+                orderLineItemStatusName: "ReturnAccepted",
+              },
+            ],
+            orderDate: 1542801149863,
+            tcIdentityNumber: "99999999999",
+            currencyCode: "TRY",
+            packageHistories: [
+              {
+                createdDate: 1542790350607,
+                status: "Created",
+              },
+              {
+                createdDate: 1543789070462,
+                status: "Delivered",
+              },
+              {
+                createdDate: 1542872460911,
+                status: "Picking",
+              },
+              {
+                createdDate: 1542953901874,
+                status: "Shipped",
+              },
+            ],
+            shipmentPackageStatus: "ReturnAccepted",
+            estimatedDeliveryStartDate: 1614605119000,
+            estimatedDeliveryEndDate: 1615296319000,
+            deliveryAddressType: "Shipment",
+            agreedDeliveryDate: 1622549842955, // Ürüne belirtilmiş termin süresinden hesaplanan siparişin gecikmeden kargoya verilmesi için son gündür.
+          },
+        ],
+      };
+
+      mock
+        .onGet(`${ty.END_POINT}suppliers/${STORE_ID}/orders`)
+        .reply(200, orderList);
+
+      const result = await ty.getOrderWithAllPages();
+
+      expect(mock.history.get[0].url).toEqual(`suppliers/${STORE_ID}/orders`);
+
+      expect(result.length).toEqual(1);
+      expect(result[0].data).toEqual(orderList);
+      expect(result[0].status).toEqual(200);
+      expectGlobal(result[0]);
+    });
+  });
+
   describe("getBrands", () => {
     it("should be return brands list", async () => {
       const brandResult: BrandResult = {
