@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 import { OrderRequest, OrderResponse, OrderResult } from "../Interfaces/IOrder";
 import { ShipmentProviderResponse } from "../Interfaces/IShipmentProvider";
 import {
@@ -25,7 +25,7 @@ import {
 
 class Trendyol {
   public END_POINT = "https://api.trendyol.com/sapigw/";
-  private _;
+  private _: AxiosInstance;
   constructor(
     private API_KEY: string,
     private API_SECRET: string,
@@ -41,6 +41,10 @@ class Trendyol {
       },
       baseURL: this.END_POINT,
     });
+  }
+
+  getHttpClient(): AxiosInstance {
+    return this._;
   }
 
   getOrders(params: OrderRequest = {}): Promise<OrderResponse> {

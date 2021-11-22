@@ -5,7 +5,7 @@ interface Item {
   requestItem: any;
   status: string;
   //TODO: edit inner item
-  fauilureReasons: any[];
+  failureReasons: any[];
 }
 
 interface BatchRequestResultResult {
@@ -16,8 +16,8 @@ interface BatchRequestResultResult {
   lastModification: number;
   sourceType: string;
   itemCount: number;
-  failedItemCount: number;
-  batchRequestType: string;
+  failedItemCount?: number;
+  batchRequestType?: string;
 }
 
 interface BatchRequestResultResponse extends AxiosResponse {

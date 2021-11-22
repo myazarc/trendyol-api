@@ -7,13 +7,14 @@ interface Address {
   address1: string;
   address2: string;
   city: string;
-  cityCode: string;
+  cityCode?: string | number;
   district: string;
-  districtId: string;
+  districtId?: string | number;
   postalCode: string;
   countryCode: string;
   fullName: string;
   fullAddress: string;
+  company?: string;
 }
 
 interface DiscountDetail {
@@ -60,10 +61,10 @@ interface Content {
   customerId: number;
   customerLastName: string;
   id: number;
-  cargoTrackingNumber: number | string | null;
-  cargoTrackingLink: string | null;
-  cargoSenderNumber: string | null;
-  cargoProviderName: string | null;
+  cargoTrackingNumber?: number | string | null;
+  cargoTrackingLink?: string | null;
+  cargoSenderNumber?: string | null;
+  cargoProviderName?: string | null;
   lines: Line[];
   orderDate: number;
   tcIdentityNumber: string;

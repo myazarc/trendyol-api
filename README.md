@@ -1,8 +1,14 @@
 # trendyol-api
 
-Js Trendyol Api with Promise and Typescript support.
+[![npm version](https://badge.fury.io/js/trendyol-api.svg)](https://www.npmjs.com/package/trendyol-api)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Npm Publish workflow](https://github.com/myazarc/trendyol-api/actions/workflows/main.yml/badge.svg)
+![NPM week download](https://img.shields.io/npm/dw/trendyol-api)
+![jest coverage](.badges/coverage.svg)
 
-HttpClient: axios
+Trendyol Api with Promise and Typescript support.
+
+HttpClient: [axios](https://github.com/axios/axios)
 
 # install
 
