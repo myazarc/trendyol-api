@@ -31,7 +31,7 @@ interface SuppliersAddressResult {
 }
 
 interface SuppliersAddressResponse extends AxiosResponse {
-  data: SuppliersAddressResult[];
+  data: SuppliersAddressResult;
 }
 
 export {
