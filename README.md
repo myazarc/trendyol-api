@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Npm Publish workflow](https://github.com/myazarc/trendyol-api/actions/workflows/main.yml/badge.svg)
 ![NPM week download](https://img.shields.io/npm/dw/trendyol-api)
-![jest coverage](.badges/coverage.svg)
+![jest coverage](https://raw.githubusercontent.com/myazarc/trendyol-api/main/.badges/coverage.svg)
 
 Trendyol Api with Promise and Typescript support.
 
