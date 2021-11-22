@@ -105,3 +105,4 @@ typings/
 src/
 
 .badges/
+__tests__/
